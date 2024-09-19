@@ -3,3 +3,4 @@ Team 15 Trello board -> https://trello.com/b/eBAqYmOf
 Team members:
 
 * Gonzalo Coronado
+* Juan Campos
