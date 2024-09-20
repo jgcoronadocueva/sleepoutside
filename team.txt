@@ -5,3 +5,4 @@ Team members:
 * Gonzalo Coronado
 * Juan Campos
 * Benjamin LeBeau
+* Ivan Romero
