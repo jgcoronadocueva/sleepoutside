@@ -59,7 +59,22 @@
         <h2>My Cart</h2>
 
         <ul class="product-list">
-          <!-- <li class="cart-card divider">
+
+    <!-- display a message if the cart is empty -->
+    <p id="empty-cart-message" style="display: none;">Your cart is empty.</p>
+
+    <script>
+      const cartList = document.getElementById('cart-list');
+      const emptyCartMessage = document.getElementById('empty-cart-message');
+
+      if (isCartEmpty()) {
+        emptyCartMessage.style.display = 'block';
+      } else {
+        // display cart contents here
+        // iterate over the cart items and append them to the cartList
+      }
+    </script>
+         <li class="cart-card divider">
             <a href="product_pages/marmot-ajax-3.html" class="cart-card__image">
               <img
                 src="images/tents/marmot-ajax-tent-3-person-3-season-in-pale-pumpkin-terracotta~p~880rr_01~320.jpg"
@@ -88,7 +103,7 @@
             <p class="cart-card__color">Golden Oak/Saffron Yellow</p>
             <p class="cart-card__quantity">qty: 1</p>
             <p class="cart-card__price">$199.99</p>
-          </li> -->
+          </li> 
         </ul>
       </section>
     </main>

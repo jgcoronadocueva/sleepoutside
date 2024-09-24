@@ -5,6 +5,22 @@ function renderCartContents() {
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
 }
+function isCartEmpty() {
+  const cart = JSON.parse(localStorage.getItem('cart'));
+  return cart === null || cart.length === 0;
+}
+if (!isCartEmpty()) {
+  const cart = JSON.parse(localStorage.getItem('cart'));
+  cart.forEach((item) => {
+    const cartCard = document.createElement('li');
+    cartCard.className = 'cart-card divider';
+
+    // create the cart card elements (image, name, color, quantity, price)
+    // append the cart card to the cartList
+
+    cartList.appendChild(cartCard);
+  });
+}
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
