@@ -14,7 +14,7 @@ function addProductToCart(product) {
 
   // add the new product to the cart
   cartItems.push(product);
-  
+
   // save the cart into LocalStorage
   setLocalStorage("so-cart", cartItems);
 }
