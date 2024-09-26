@@ -1,5 +1,4 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-import { addToCartHandler } from "./product";
 
 export default class ProductDetails {
     constructor(productId, dataSource) {
@@ -12,10 +11,13 @@ export default class ProductDetails {
         // Find product using its ID
       this.product = await this.dataSource.findProductById(this.productId);
 
+      // Render
+      this.renderProductDetails(".divider");
+
       // add listener to Add to Cart button
         document
         .getElementById("addToCart")
-        .addEventListener("click", addToCartHandler);
+        .addEventListener("click", () => {this.addProductToCart(this.product)});
     }
 
     async findProductById(id) {
@@ -41,7 +43,7 @@ export default class ProductDetails {
     
       renderProductDetails(selector) {
         const main = document.querySelector(selector);
-        main.insertAdjacentHtml("afterBegin", productDetailsTemplate(this.product))
+        main.insertAdjacentHTML("afterBegin", productDetailsTemplate(this.product))
         
       }
   }
