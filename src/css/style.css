@@ -220,3 +220,22 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+/* Superscript number on cart */
+.amount-container {
+  position: absolute;
+  top: 0.1rem;
+  right: -0.6rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.total-amount {
+  margin-bottom: 1;
+  font-size: 1.25rem;
+}
