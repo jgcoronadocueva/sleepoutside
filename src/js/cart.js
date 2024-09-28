@@ -1,4 +1,5 @@
-import { getLocalStorage } from "./utils.mjs";
+
+import { getLocalStorage, elementExists, showHiddenElement } from "./utils.mjs";
 import amountChangeHandler from "./superScriptHandler";
 
 function renderCartContents() {
@@ -26,5 +27,36 @@ function cartItemTemplate(item) {
   return newItem;
 }
 
+// Total$ in Cart (Trello Card)
+// Calculate total from a list of products
+function calculateTotal(cartItems) {
+  let cartTotal = 0;
+  cartItems.forEach((item) => {
+    cartTotal += item.FinalPrice;
+  });
+  return cartTotal;
+}
+
+// Update the cart total display
+function updateCartTotalDisplay(cartTotal) {
+  document.querySelector(".cart-total").innerHTML = `Total: $${cartTotal}`;
+}
+
+// Showing the Total in the cart site
+async function totalCalculator() {
+  if (elementExists(".cart-card.divider")) {
+    showHiddenElement(".cart-footer");
+    const cartItems = await getLocalStorage("so-cart");
+    const cartTotal = calculateTotal(cartItems);
+    updateCartTotalDisplay(cartTotal);
+  }
+}
+
+// Render the cart contents
 renderCartContents();
+
+// Check the items' amount inside the cart
 amountChangeHandler();
+
+// Calculate the total price
+totalCalculator();

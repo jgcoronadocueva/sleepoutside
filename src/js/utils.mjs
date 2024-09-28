@@ -30,6 +30,17 @@ export function getParams(param) {
   return product;
 }
 
+// Total$ in Cart (Trello Card)
+// Check if an element with an specific class exists
+export function elementExists(element) {
+  return document.querySelector(element) !== null;
+}
+
+// Remove hide class from an element
+export function showHiddenElement(element) {
+  return document.querySelector(element).classList.remove("hide");
+}
+
 // render a list with template
 
 export function renderListWithTemplate(

@@ -236,6 +236,12 @@ footer {
   justify-content: center;
 }
 
+/* Hiding an element */
+.hide {
+  display: none;
+}
+
+/* Format of the total amount displayed in the cart page */
 .total-amount {
   margin-bottom: 1;
   font-size: 1.25rem;
