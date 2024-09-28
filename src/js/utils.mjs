@@ -29,3 +29,31 @@ export function getParams(param) {
   const product = urlParams.get(param);
   return product;
 }
+
+// Total$ in Cart (Trello Card)
+// Check if an element with an specific class exists
+export function elementExists(element) {
+  return document.querySelector(element) !== null;
+}
+
+// Remove hide class from an element
+export function showHiddenElement(element) {
+  return document.querySelector(element).classList.remove("hide");
+}
+
+// render a list with template
+
+export function renderListWithTemplate(
+  templateFn,
+  parentElement,
+  list,
+  position = "afterbegin",
+  clear = false,
+) {
+  if (clear) {
+    parentElement.innerHTML = "";
+  }
+
+  const htmlStrings = list.map((product) => templateFn(product));
+  parentElement.insertAdjacentHTML(position, htmlStrings.join(" "));
+}
