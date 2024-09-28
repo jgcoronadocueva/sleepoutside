@@ -230,7 +230,8 @@ footer {
   height: 1.75rem;
   border-radius: 50%;
   background-color: var(--primary-color);
-  display: flex;
+  /* display will change to flex once the amount in the cart is greater than 0 */
+  display: none;
   align-items: center;
   justify-content: center;
 }
