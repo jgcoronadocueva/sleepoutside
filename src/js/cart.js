@@ -1,4 +1,3 @@
-
 import { getLocalStorage, elementExists, showHiddenElement } from "./utils.mjs";
 import amountChangeHandler from "./superScriptHandler";
 
