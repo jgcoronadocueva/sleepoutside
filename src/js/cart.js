@@ -1,4 +1,6 @@
+
 import { getLocalStorage, elementExists, showHiddenElement } from "./utils.mjs";
+import amountChangeHandler from "./superScriptHandler";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
@@ -25,8 +27,6 @@ function cartItemTemplate(item) {
   return newItem;
 }
 
-renderCartContents();
-
 // Total$ in Cart (Trello Card)
 // Calculate total from a list of products
 function calculateTotal(cartItems) {
@@ -52,4 +52,11 @@ async function totalCalculator() {
   }
 }
 
+// Render the cart contents
+renderCartContents();
+
+// Check the items' amount inside the cart
+amountChangeHandler();
+
+// Calculate the total price
 totalCalculator();

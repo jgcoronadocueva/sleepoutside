@@ -221,7 +221,28 @@ footer {
   padding: 1em;
 }
 
+/* Superscript number on cart */
+.amount-container {
+  position: absolute;
+  top: 0.1rem;
+  right: -0.6rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  /* display will change to flex once the amount in the cart is greater than 0 */
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Hiding an element */
 .hide {
   display: none;
+}
+
+/* Format of the total amount displayed in the cart page */
+.total-amount {
+  margin-bottom: 1;
+  font-size: 1.25rem;
 }
