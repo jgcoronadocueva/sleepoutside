@@ -1,3 +1,5 @@
+import amountChangeHandler from "./superScriptHandler";
+
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
@@ -56,4 +58,36 @@ export function renderListWithTemplate(
 
   const htmlStrings = list.map((product) => templateFn(product));
   parentElement.insertAdjacentHTML(position, htmlStrings.join(" "));
+}
+
+export function renderWithTemplate(
+  template,
+  parentElement,
+  position = "afterbegin"
+) {
+  //if(callback) {
+  //  callback(data);
+  //}
+  parentElement.insertAdjacentHTML(position, template);
+}
+
+async function loadTemplate(path){
+  const res = await fetch(path);
+  const template = await res.text();
+  return template;
+}
+
+//creates both header and footer templates.
+export async function loadHeaderFooter(){
+
+  const footerTemplate= await loadTemplate("../partials/footer.html");
+  const headerTemplate = await loadTemplate("../partials/header.html");
+
+  const footerElement = document.querySelector("#footerPartial");
+  const headerElement = document.querySelector("#headerPartial");
+
+  renderWithTemplate(footerTemplate, footerElement);
+  renderWithTemplate(headerTemplate, headerElement);
+
+  amountChangeHandler();
 }

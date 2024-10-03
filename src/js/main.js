@@ -2,6 +2,10 @@
 import Alert from "./Alert";
 import ProductData from "./ProductData.mjs";
 import ProductListing from "./ProductList.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
+
+//returns templates to index.html for main page
+loadHeaderFooter();
 
 // Display tents on main site
 let tentDataSource = new ProductData("tents");
