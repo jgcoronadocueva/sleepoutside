@@ -1,8 +1,7 @@
 import ProductData from "./ProductData.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 import { getParams } from "./utils.mjs";
-import {loadHeaderFooter} from "./utils.mjs";
-
+import { loadHeaderFooter } from "./utils.mjs";
 
 //returns templates to index.html for main page
 loadHeaderFooter();

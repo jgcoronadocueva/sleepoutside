@@ -1,8 +1,5 @@
 import { getLocalStorage, elementExists, showHiddenElement } from "./utils.mjs";
-import amountChangeHandler from "./superScriptHandler";
-import {loadHeaderFooter} from "./utils.mjs";
-
-
+import { loadHeaderFooter } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
@@ -53,12 +50,9 @@ async function totalCalculator() {
     updateCartTotalDisplay(cartTotal);
   }
 }
-loadHeaderFooter()
+loadHeaderFooter();
 // Render the cart contents
 renderCartContents();
-
-// Check the items' amount inside the cart
-//amountChangeHandler();
 
 // Calculate the total price
 totalCalculator();

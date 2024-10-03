@@ -13,5 +13,3 @@ export default function amountChangeHandler() {
   let superScript = document.querySelector(".total-amount");
   superScript.innerHTML = `${storageArray.length}`;
 }
-
-
