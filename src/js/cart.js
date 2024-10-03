@@ -1,30 +1,6 @@
 import { getLocalStorage, elementExists, showHiddenElement } from "./utils.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
-
-function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
-}
-
-function cartItemTemplate(item) {
-  const newItem = `<li class="cart-card divider">
-  <a href="#" class="cart-card__image">
-    <img
-      src="${item.Image}"
-      alt="${item.Name}"
-    />
-  </a>
-  <a href="#">
-    <h2 class="card__name">${item.Name}</h2>
-  </a>
-  <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
-  <p class="cart-card__price">$${item.FinalPrice}</p>
-</li>`;
-
-  return newItem;
-}
+import ShoppingCart from "./ShoppingCart.mjs";
 
 // Total$ in Cart (Trello Card)
 // Calculate total from a list of products
@@ -50,12 +26,13 @@ async function totalCalculator() {
     updateCartTotalDisplay(cartTotal);
   }
 }
-loadHeaderFooter();
-// Render the cart contents
-renderCartContents();
 
-// Check the items' amount inside the cart
-//amountChangeHandler();
+//loads both header and footer html
+loadHeaderFooter();
+
+//gets local storage and applies cart template, adds to the html
+let cartContents = new ShoppingCart(".product-list");
+cartContents.renderCartContents();
 
 // Calculate the total price
 totalCalculator();
