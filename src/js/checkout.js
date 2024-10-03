@@ -1,5 +1,4 @@
-import {loadHeaderFooter} from "./utils.mjs";
-
+import { loadHeaderFooter } from "./utils.mjs";
 
 //returns templates to index.html for main page
 loadHeaderFooter();
