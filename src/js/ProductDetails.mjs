@@ -13,7 +13,7 @@ export default class ProductDetails {
     this.product = await this.dataSource.findProductById(this.productId);
 
     // Render
-    this.renderProductDetails(".divider");
+    this.renderProductDetails("main.divider");
 
     // add listener to Add to Cart button
     document.getElementById("addToCart").addEventListener("click", () => {
