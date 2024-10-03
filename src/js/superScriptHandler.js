@@ -14,4 +14,4 @@ export default function amountChangeHandler() {
   superScript.innerHTML = `${storageArray.length}`;
 }
 
-amountChangeHandler();
+
