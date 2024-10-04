@@ -270,4 +270,8 @@ footer {
   font-weight: bold;
   color: black;
 }
+
+.title {
+  text-transform: capitalize;
+}
 /* Product Listing page end */

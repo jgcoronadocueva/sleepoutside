@@ -15,9 +15,5 @@ tentListing.init();
 
 // Display correct product title
 const title = document.querySelector("span.title");
-let formattedCategory = category
-  .replace(/-/g, " ")
-  .split(" ")
-  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-  .join(" ");
+let formattedCategory = category.replace(/-/g, " ");
 title.innerHTML = formattedCategory;
