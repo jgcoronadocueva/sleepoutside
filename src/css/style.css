@@ -202,8 +202,9 @@ button {
   grid-column: 3;
 }
 
+/*Category Grid on Main*/
 .gridContainer {
-  margin: auto;
+  margin: 50px auto;
   max-width: 50%;
   display: grid;
   grid-template-columns: 1fr;
