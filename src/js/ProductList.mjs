@@ -4,9 +4,9 @@ import { renderListWithTemplate } from "./utils.mjs";
 // The purpose of this script is to generate a list of product cards in HTML from an array
 function productCardTemplate(product) {
   return `<li class="product-card">
-    <a href="product_pages/?product=${product.Id}">
+    <a href="/product_pages/index.html?product=${product.Id}">
       <img
-        src="${product.Image}"
+        src="${product.Images.PrimaryMedium}"
         alt="${product.Name}"
       />
       <h3 class="card__brand">${product.Brand.Name}</h3>
@@ -22,9 +22,11 @@ export default class ProductListing {
     this.dataSource = dataSource;
     this.listElement = listElement;
   }
+  // init also changes the the content of the title to the data category
   async init() {
-    const list = await this.dataSource.getData();
+    const list = await this.dataSource.getData(this.category);
     this.renderList(this.filterList(list));
+    document.querySelector(".title").innerHTML = this.category;
   }
   renderList(list) {
     renderListWithTemplate(productCardTemplate, this.listElement, list);
