@@ -3,14 +3,18 @@ import { renderListWithTemplate } from "./utils.mjs";
 
 // The purpose of this script is to generate a list of product cards in HTML from an array
 function productCardTemplate(product) {
+  let isDiscounted = product.FinalPrice < product.SuggestedRetailPrice;
+
   return `<li class="product-card">
     <a href="/product_pages/?product=${product.Id}">
       <img
         src="${product.Images.PrimaryMedium}"
         alt="${product.Name}"
       />
+      ${isDiscounted ? `<div class="discounted">discounted</div>` : ``}
       <h3 class="card__brand">${product.Brand.Name}</h3>
       <h2 class="card__name">${product.NameWithoutBrand}</h2>
+      ${isDiscounted ? `<p class="reg-price"><s>$${product.SuggestedRetailPrice.toFixed(2)}</s></p>` : ``}
       <p class="product-card__price">$${product.FinalPrice}</p>
     </a>
   </li>`;
