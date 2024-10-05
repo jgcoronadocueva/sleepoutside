@@ -275,3 +275,18 @@ footer {
   text-transform: capitalize;
 }
 /* Product Listing page end */
+
+/* Discount indicator in the product listing */
+.discounted {
+  border: 5px solid red;
+  border-radius: 1em;
+  text-align: center;
+  width: 75%;
+  min-width: 132px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.reg-price {
+  font-size: small;
+}
