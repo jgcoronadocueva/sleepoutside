@@ -3,11 +3,11 @@ import ProductDetails from "./ProductDetails.mjs";
 import { getParams } from "./utils.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
 
-//returns templates to index.html for main page
+// Renders header and footer
 loadHeaderFooter();
 
 const productId = getParams("product");
-const dataSource = new ProductData("tents");
+const dataSource = new ProductData();
 
 const product = new ProductDetails(productId, dataSource);
 product.init();

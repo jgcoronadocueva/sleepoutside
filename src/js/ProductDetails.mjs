@@ -21,11 +21,6 @@ export default class ProductDetails {
     });
   }
 
-  async findProductById(id) {
-    const products = await this.getData();
-    return products.find((item) => item.Id === id);
-  }
-
   addProductToCart(product) {
     // get the current cart contents
     let cartItems = getLocalStorage("so-cart");
@@ -60,7 +55,7 @@ function productDetailsTemplate(product) {
 
       <img
         class="divider"
-        src="${product.Image}"
+        src="${product.Images.PrimaryLarge}"
         alt="${product.NameWithoutBrand}"
       />
 

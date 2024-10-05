@@ -2,6 +2,9 @@ import { getLocalStorage, elementExists, showHiddenElement } from "./utils.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
 import ShoppingCart from "./ShoppingCart.mjs";
 
+// Renders header and footer
+loadHeaderFooter();
+
 // Total$ in Cart (Trello Card)
 // Calculate total from a list of products
 function calculateTotal(cartItems) {
@@ -26,9 +29,6 @@ async function totalCalculator() {
     updateCartTotalDisplay(cartTotal);
   }
 }
-
-//loads both header and footer html
-loadHeaderFooter();
 
 //gets local storage and applies cart template, adds to the html
 let cartContents = new ShoppingCart(".product-list");

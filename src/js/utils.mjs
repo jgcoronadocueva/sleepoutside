@@ -80,7 +80,7 @@ async function loadTemplate(path){
 //creates both header and footer templates.
 export async function loadHeaderFooter(){
 
-  const footerTemplate= await loadTemplate("../partials/footer.html");
+  const footerTemplate = await loadTemplate("../partials/footer.html");
   const headerTemplate = await loadTemplate("../partials/header.html");
 
   const footerElement = document.querySelector("#footerPartial");
