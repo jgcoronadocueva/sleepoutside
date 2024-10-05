@@ -25,8 +25,10 @@ export default class ShoppingCart {
   }
   renderCartContents() {
     const cartItems = getLocalStorage("so-cart");
-    const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-    document.querySelector(this.parentSelector).innerHTML = htmlItems.join("");
+    if (cartItems) { // "if" added to prevent the site from getting an error when the cart is empty
+      const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+      document.querySelector(this.parentSelector).innerHTML = htmlItems.join("");
+    }
   }
   
 }
