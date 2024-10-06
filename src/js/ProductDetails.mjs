@@ -24,15 +24,25 @@ export default class ProductDetails {
   addProductToCart(product) {
     // get the current cart contents
     let cartItems = getLocalStorage("so-cart");
+    let duplicate = false;
 
     // If cartItems is not an array, initialize it as an empty array
     if (!Array.isArray(cartItems)) {
       cartItems = [];
     }
-
-    // add the new product to the cart
-    cartItems.push(product);
-
+    //Checks cart for duplicate items using Id
+    for (const p of cartItems){
+      if(p.Id === product.Id){
+        // If duplicate, increases quantity value
+        p.quantity++;
+        duplicate = true;
+        break;
+      }}
+    // If not a duplicate, initializes quantity value in item and adds to cart array
+    if (!duplicate){
+      product.quantity = 1;
+      cartItems.push(product);
+    }
     // save the cart into LocalStorage
     setLocalStorage("so-cart", cartItems);
     // control the super suscript

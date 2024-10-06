@@ -122,13 +122,27 @@ button {
 .products {
   padding: 0.5em;
 }
-.product-list {
+
+#productList-view {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+#cart-view {
+  margin: auto;
+}
+
+.product-list {
+  display: block;
   list-style-type: none;
   padding: 0;
 }
+
+.product-list li {
+  margin: 0.5em 0.5em;
+}
+
 .product-list a {
   text-decoration: none;
   color: var(--dark-grey);
@@ -136,10 +150,9 @@ button {
 /* Styles for product lists */
 .product-card {
   flex: 1 1 45%;
-  margin: 0.25em;
   padding: 0.5em;
   border: 1px solid var(--light-grey);
-  max-width: 250px;
+  max-width: 230px;
 }
 .product-card h2,
 .product-card h3,

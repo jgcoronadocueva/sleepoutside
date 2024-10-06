@@ -1,5 +1,5 @@
 import { getLocalStorage } from "./utils.mjs";
-
+//updated template to include the quantity value of item, instead of a static 1
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
@@ -12,8 +12,8 @@ function cartItemTemplate(item) {
     <h2 class="card__name">${item.Name}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
-  <p class="cart-card__price">$${item.FinalPrice}</p>
+  <p class="cart-card__quantity">qty: ${item.quantity}</p>
+  <p class="cart-card__price">$${new Intl.NumberFormat('en-US').format(item.FinalPrice * item.quantity)}</p>
 </li>`;
 
   return newItem;
