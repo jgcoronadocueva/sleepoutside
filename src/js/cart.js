@@ -13,7 +13,7 @@ function calculateTotal(cartItems) {
   cartItems.forEach((item) => {
     cartTotal += item.FinalPrice * item.quantity;
   });
-  return new Intl.NumberFormat('en-US').format(cartTotal);
+  return new Intl.NumberFormat("en-US").format(cartTotal);
 }
 
 // Update the cart total display
