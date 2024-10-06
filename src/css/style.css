@@ -123,13 +123,13 @@ button {
   padding: 0.5em;
 }
 
-#productList-view {
+#productList-view{
   display: flex;
   flex-wrap: wrap;
   margin: auto;
 }
 
-#cart-view {
+#cart-view{
   margin: auto;
 }
 
@@ -139,8 +139,8 @@ button {
   padding: 0;
 }
 
-.product-list li {
-  margin: 0.5em 0.5em;
+.product-list li{
+  margin: .5em .5em;
 }
 
 .product-list a {
@@ -187,6 +187,7 @@ button {
   /* max-height: 120px; */
   align-items: center;
 }
+
 
 .cart-card__image {
   grid-row: 1/3;
