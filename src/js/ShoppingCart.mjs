@@ -13,7 +13,7 @@ function cartItemTemplate(item) {
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: ${item.quantity}</p>
-  <p class="cart-card__price">$${item.FinalPrice * item.quantity}</p>
+  <p class="cart-card__price">$${new Intl.NumberFormat('en-US').format(item.FinalPrice * item.quantity)}</p>
 </li>`;
 
   return newItem;
