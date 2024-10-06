@@ -7,10 +7,11 @@ loadHeaderFooter();
 
 // Total$ in Cart (Trello Card)
 // Calculate total from a list of products
+//updated to take qty into account
 function calculateTotal(cartItems) {
   let cartTotal = 0;
   cartItems.forEach((item) => {
-    cartTotal += item.FinalPrice;
+    cartTotal += item.FinalPrice * item.quantity;
   });
   return cartTotal;
 }
