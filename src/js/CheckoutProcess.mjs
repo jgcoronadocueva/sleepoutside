@@ -1,4 +1,35 @@
+import ExternalServices from "./ExternalServices.mjs";
 import { getLocalStorage, calculateTotal } from "./utils.mjs";
+
+const services = new ExternalServices();
+
+// takes a form element and returns an object where the key is the "name" of the form input.
+function formDataToJSON(formElement) {
+  const formData = new FormData(formElement),
+    convertedJSON = {};
+
+  formData.forEach(function (value, key) {
+    convertedJSON[key] = value;
+  });
+
+  return convertedJSON;
+}
+
+// takes the items currently stored in the cart (localstorage) and returns them in a simplified form.
+function packageItems(items) {
+  const simpleItems = items.map((item) => {
+    return {
+      id: item.id,
+      price: item.FinalPrice,
+      name: item.name,
+      quantity: item.quantity,
+    };
+  })
+  console.log(simpleItems);
+  return simpleItems;
+ 
+}
+
 
 export default class CheckoutProcess {
   constructor() {
@@ -20,7 +51,6 @@ export default class CheckoutProcess {
     this.cartList.forEach((item) => {
       totalItems += item.quantity;
     });
-    console.log(totalItems);
     return 10 + (totalItems - 1) * 2;
   }
 
@@ -51,5 +81,23 @@ export default class CheckoutProcess {
     }else{
       console.log("failure")
     }
+  }
+
+  async checkout(form){
+    const formInfo = document.forms["checkout"];
+    const json = formDataToJSON(formInfo);
+
+    json.orderDate = new Date();
+    json.orderTotal = this.orderTotal
+    json.shipping = this.shippingCost
+    json.tax = this.tax
+    json.items = packageItems(this.cartList);
+    try {
+      const res = await services.checkout(json);
+      console.log(res);
+    } catch (err){
+      console.log(err);
+    }
+
   }
 }

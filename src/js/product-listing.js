@@ -1,5 +1,5 @@
 // Imports
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import ProductListing from "./ProductList.mjs";
 import { loadHeaderFooter, getParams } from "./utils.mjs";
 
@@ -8,7 +8,7 @@ loadHeaderFooter();
 
 // Display products
 const category = getParams("category");
-let dataSource = new ProductData();
+let dataSource = new ExternalServices();
 const htmlTag = document.querySelector(".product-list");
 let tentListing = new ProductListing(category, dataSource, htmlTag);
 tentListing.init();
