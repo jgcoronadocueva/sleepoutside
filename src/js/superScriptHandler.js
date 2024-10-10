@@ -13,7 +13,7 @@ export default function amountChangeHandler() {
 
   // Look for every item's quantity and display it
   let superScript = document.querySelector(".total-amount");
-  storageArray.forEach(item => {
+  storageArray.forEach((item) => {
     itemTotal += item.quantity;
   });
   superScript.innerHTML = `${itemTotal}`;

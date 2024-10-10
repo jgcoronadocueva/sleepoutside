@@ -14,7 +14,7 @@ document
 
 // listening for click on the button
 document.querySelector("#checkoutSubmit").addEventListener("click", (e) => {
-    e.preventDefault();
-  
-    myCheckout.checkout();
-  });
+  e.preventDefault();
+
+  myCheckout.checkout();
+});
