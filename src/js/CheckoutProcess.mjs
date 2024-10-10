@@ -17,17 +17,13 @@ function formDataToJSON(formElement) {
 
 // takes the items currently stored in the cart (localstorage) and returns them in a simplified form.
 function packageItems(items) {
-  const simpleItems = items.map((item) => {
-    return {
+  const simpleItems = items.map((item) => ({
       id: item.id,
       price: item.FinalPrice,
       name: item.name,
       quantity: item.quantity,
-    };
-  })
-  console.log(simpleItems);
+    }))
   return simpleItems;
- 
 }
 
 
@@ -55,8 +51,8 @@ export default class CheckoutProcess {
   }
 
   calculateTax() {
-    var tax = this.subTotal *.06;
-    return Math.round(tax * 100) /100;
+    var tax = this.subTotal * .06;
+    return Math.round(tax * 100) / 100;
   }
 
   calculateOrderTotal() {
@@ -67,23 +63,21 @@ export default class CheckoutProcess {
 
   displaySummary() {
     let html = `<h3>Order Summary</h3>
-          <p>Subtotal: <span id="subtotal">${new Intl.NumberFormat("en-US").format(this.subTotal)}</span></p>
-          <p>Shipping Estimate: <span id="shippingEstimate">${this.shippingCost}</span></p>
-          <p>Tax: <span id="tax">${this.tax}</span></p>
+          <p>Subtotal: <span id="subtotal">$${new Intl.NumberFormat("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}).format(this.subTotal)}</span></p>
+          <p>Shipping Estimate: <span id="shippingEstimate">$${this.shippingCost.toFixed(2)}</span></p>
+          <p>Tax: <span id="tax">$${this.tax.toFixed(2)}</span></p>
           <p>
-            <strong>Order Total: <span id="orderTotal">${new Intl.NumberFormat("en-US").format(this.orderTotal)}</span></strong>
+            <strong>Order Total: <span id="orderTotal">$${new Intl.NumberFormat("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}).format(this.orderTotal)}</span></strong>
           </p>`;
 
     if (this.cartList) {
       // "if" added to prevent the site from getting an error when the cart is empty
 
       document.querySelector(".order-summary").innerHTML = html;
-    }else{
-      console.log("failure")
     }
   }
 
-  async checkout(form){
+  async checkout(){
     const formInfo = document.forms["checkout"];
     const json = formDataToJSON(formInfo);
 
