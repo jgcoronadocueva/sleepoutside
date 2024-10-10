@@ -72,7 +72,6 @@ export default class CheckoutProcess {
 
     if (this.cartList) {
       // "if" added to prevent the site from getting an error when the cart is empty
-
       document.querySelector(".order-summary").innerHTML = html;
     }
   }
