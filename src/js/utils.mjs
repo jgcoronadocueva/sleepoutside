@@ -93,9 +93,8 @@ export async function loadHeaderFooter() {
 
 export function calculateTotal(cartItems) {
   let cartTotal = 0;
-  console.log(cartItems);
   cartItems.forEach((item) => {
     cartTotal += item.FinalPrice * item.quantity;
   });
-  return new Intl.NumberFormat("en-US").format(cartTotal);
+  return cartTotal;
 }
