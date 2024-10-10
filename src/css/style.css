@@ -303,3 +303,18 @@ footer {
 .reg-price {
   font-size: small;
 }
+
+/* Checkout */
+
+a {
+  text-decoration: none;
+}
+
+fieldset {
+  margin-bottom: 20px;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 10px;
+}
