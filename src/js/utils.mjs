@@ -63,7 +63,7 @@ export function renderListWithTemplate(
 export function renderWithTemplate(
   template,
   parentElement,
-  position = "afterbegin"
+  position = "afterbegin",
 ) {
   //if(callback) {
   //  callback(data);
@@ -71,15 +71,14 @@ export function renderWithTemplate(
   parentElement.insertAdjacentHTML(position, template);
 }
 
-async function loadTemplate(path){
+async function loadTemplate(path) {
   const res = await fetch(path);
   const template = await res.text();
   return template;
 }
 
 //creates both header and footer templates.
-export async function loadHeaderFooter(){
-
+export async function loadHeaderFooter() {
   const footerTemplate = await loadTemplate("../partials/footer.html");
   const headerTemplate = await loadTemplate("../partials/header.html");
 
@@ -90,4 +89,12 @@ export async function loadHeaderFooter(){
   renderWithTemplate(headerTemplate, headerElement);
 
   amountChangeHandler();
+}
+
+export function calculateTotal(cartItems) {
+  let cartTotal = 0;
+  cartItems.forEach((item) => {
+    cartTotal += item.FinalPrice * item.quantity;
+  });
+  return cartTotal;
 }
