@@ -1,23 +1,20 @@
 import { loadHeaderFooter } from "./utils.mjs";
 import CheckoutProcess from "./CheckoutProcess.mjs";
-// import { calculateTotal } from "./cart.js";
 
 // Renders header and footer
 loadHeaderFooter();
 
-// async function getItems() {
-//   const cartItems = await getLocalStorage("so-cart");
+let myCheckout = new CheckoutProcess("so-cart", ".checkout-summary");
+myCheckout.init();
 
-//   return cartItems;
-// }
+// Show Totals after zip code
+document
+  .querySelector("#zip")
+  .addEventListener("blur", myCheckout.calculateOrdertotal.bind(myCheckout));
 
-//let items = getItems();
-//let subtotal = calculateTotal(items);
-const checkOut = new CheckoutProcess();
-checkOut.init();
-
-document.querySelector("#checkout-submit").addEventListener("click", (e) => {
+// listening for click on the button
+document.querySelector("#checkoutSubmit").addEventListener("click", (e) => {
   e.preventDefault();
 
-  checkOut.checkout();
+  myCheckout.checkout();
 });

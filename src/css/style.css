@@ -304,17 +304,35 @@ footer {
   font-size: small;
 }
 
-/* Checkout */
-
-a {
+/* Checkout Start */
+#cart-view a {
   text-decoration: none;
 }
 
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
 fieldset {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 label {
   display: inline-block;
   margin-bottom: 10px;
+  text-align: right;
+  width: 100px;
 }
+
+input {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+fieldset p {
+  display: inline-block;
+  margin-left: 20px;
+}
+/* Checkout End */
+

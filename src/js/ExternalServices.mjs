@@ -22,12 +22,12 @@ export default class ExternalServices {
 
   async checkout(payload) {
     const options = {
-      method: "Post",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
     };
-    return await fetch(baseURL + "checkout/" + options).then(convertToJson);
+    return await fetch(baseURL + "checkout/", options).then(convertToJson);
   }
 }
