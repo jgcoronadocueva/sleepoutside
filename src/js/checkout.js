@@ -15,6 +15,11 @@ document
 // listening for click on the button
 document.querySelector("#checkoutSubmit").addEventListener("click", (e) => {
   e.preventDefault();
-
-  myCheckout.checkout();
+  const checkoutForm = document.forms[0];
+  const formCheck = checkoutForm.checkValidity();
+  checkoutForm.reportValidity();
+  if(formCheck){
+    myCheckout.checkout();
+    window.location = "/checkout/success.html"
+  }
 });
