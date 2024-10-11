@@ -24,7 +24,7 @@ export default class CheckoutProcess {
       // calculate and display the total amount of the items in the cart, and the number of items.
         this.list.forEach(item => {
             this.itemTotal += item.quantity;
-            this.subTotal +=  item.FinalPrice;
+            this.subTotal +=  item.FinalPrice * item.quantity;
         });
 
         let displayAmount = document.querySelector(this.outputSelector + " #num-items");

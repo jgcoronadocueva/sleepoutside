@@ -90,11 +90,3 @@ export async function loadHeaderFooter() {
 
   amountChangeHandler();
 }
-
-export function calculateTotal(cartItems) {
-  let cartTotal = 0;
-  cartItems.forEach((item) => {
-    cartTotal += item.FinalPrice * item.quantity;
-  });
-  return cartTotal;
-}
