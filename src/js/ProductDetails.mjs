@@ -60,7 +60,7 @@ export default class ProductDetails {
     section.classList.add("title");
 
     const h2 = document.createElement("h2");
-    h2.innerHTML = this.product.Category.replace(/-/g, " ");
+    h2.innerHTML = this.product.Category.replace(/-/g, " ").replace(/s\b/, "");
     section.prepend(h2);
     main.prepend(section);
   }
