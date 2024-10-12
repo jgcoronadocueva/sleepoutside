@@ -31,6 +31,7 @@ export default class ExternalServices {
     return await fetch(baseURL + "checkout/", options).then(convertToJson);
   }
 
+  //The Post request to Send the newsletter email, if ever needed.
   async newsSignUp(payload) {
     const options = {
       method: "POST",
