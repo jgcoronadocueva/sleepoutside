@@ -75,7 +75,10 @@ export default class CheckoutProcess {
     json.items = packageItems(this.list);
     try {
       const res = await services.checkout(json);
-      console.log(res);
+      if (res) {
+        window.location.replace("success.html");
+        localStorage.removeItem(this.key);
+      }
     } catch (err) {
       console.log(err);
     }

@@ -35,20 +35,51 @@
                 <label for="city">City:</label>
                 <input name="city" required /><br />
                 <label for="state">State:</label>
-                <input name="state" required /><br />
+                <input
+                  name="state"
+                  required
+                  maxlength="2"
+                  pattern="[A-Z]{2}"
+                  title="State must consist of exactly 2 capital letters."
+                /><br />
                 <label for="zip">Zip:</label>
-                <input name="zip" id="zip" required />
+                <input
+                  name="zip"
+                  id="zip"
+                  required
+                  maxlength="5"
+                  pattern="\d{5}"
+                  title="Zip code must consist of exactly 5 digits."
+                />
               </div>
             </fieldset>
             <fieldset>
               <legend>Payment</legend>
               <div class="checkout-div">
                 <label for="cardNumber">Card number:</label>
-                <input name="cardNumber" required /><br />
+                <input
+                  name="cardNumber"
+                  required
+                  maxlength="16"
+                  pattern="\d{16}"
+                  title="Card number must consist of exactly 16 digits."
+                /><br />
                 <label for="expiration">Expiration:</label>
-                <input name="expiration" required /><br />
+                <input
+                  name="expiration"
+                  required
+                  maxlength="5"
+                  pattern="(0[1-9]|1[0-2])\/\d{2}"
+                  title="Expiration date must follow the format MM/YY"
+                /><br />
                 <label for="code">Security Code:</label>
-                <input name="code" required />
+                <input
+                  name="code"
+                  required
+                  maxlength="3"
+                  pattern="\d{3}"
+                  title="Security code must consist of exactly 3 digits."
+                />
               </div>
             </fieldset>
             <fieldset class="checkout-summary">
@@ -73,7 +104,6 @@
             <button id="checkoutSubmit" type="submit">Checkout</button>
           </form>
         </div>
-        
       </section>
     </main>
     <footer id="footerPartial"></footer>
