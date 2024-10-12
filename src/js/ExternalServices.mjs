@@ -1,10 +1,17 @@
+import { alertMessage } from "./utils.mjs";
 const baseURL = import.meta.env.VITE_SERVER_URL;
 
-function convertToJson(res) {
+async function convertToJson(res) {
+  const response = await res.json();
   if (res.ok) {
-    return res.json();
+    return response;
   } else {
-    throw new Error("Bad Response");
+    const errors = Object.keys(response).map((key) => {
+      let text = `${key}: ${response[key]}`;
+      alertMessage(text);
+      return text;
+    });
+    throw new Error(errors.join(", "));
   }
 }
 

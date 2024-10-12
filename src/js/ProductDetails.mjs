@@ -1,4 +1,8 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import {
+  getLocalStorage,
+  setLocalStorage,
+  notificationAdded,
+} from "./utils.mjs";
 import amountChangeHandler from "./superScriptHandler";
 
 export default class ProductDetails {
@@ -31,15 +35,16 @@ export default class ProductDetails {
       cartItems = [];
     }
     //Checks cart for duplicate items using Id
-    for (const p of cartItems){
-      if(p.Id === product.Id){
+    for (const p of cartItems) {
+      if (p.Id === product.Id) {
         // If duplicate, increases quantity value
         p.quantity++;
         duplicate = true;
         break;
-      }}
+      }
+    }
     // If not a duplicate, initializes quantity value in item and adds to cart array
-    if (!duplicate){
+    if (!duplicate) {
       product.quantity = 1;
       cartItems.push(product);
     }
@@ -47,6 +52,7 @@ export default class ProductDetails {
     setLocalStorage("so-cart", cartItems);
     // control the super suscript
     amountChangeHandler();
+    notificationAdded(product.Name);
   }
 
   renderProductDetails(selector) {

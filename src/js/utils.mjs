@@ -90,3 +90,63 @@ export async function loadHeaderFooter() {
 
   amountChangeHandler();
 }
+
+// creates alerts due to errors in the form
+export function alertMessage(message, scroll = true) {
+  const alert = document.createElement("div");
+  alert.classList.add("alert");
+  alert.classList.add("incorrect");
+  const text = document.createElement("p");
+  const closeButton = document.createElement("button");
+  closeButton.classList.add("btn-close");
+  closeButton.classList.add("incorrect");
+  text.textContent = message;
+  closeButton.textContent = "X";
+
+  alert.appendChild(text);
+  alert.appendChild(closeButton);
+
+  const main = document.querySelector("main");
+
+  alert.addEventListener("click", function (e) {
+    if (e.target.tagName) {
+      main.removeChild(this);
+    }
+  });
+
+  main.prepend(alert);
+
+  if (scroll) {
+    window.scrollTo(0, 0);
+  }
+}
+
+export function notificationAdded(item, scroll = true) {
+  const alert = document.createElement("div");
+  alert.classList.add("alert");
+  alert.classList.add("correct");
+  const text = document.createElement("p");
+  const closeButton = document.createElement("button");
+  closeButton.classList.add("btn-close");
+  closeButton.classList.add("correct");
+  text.textContent = `${item} has been added to your cart`;
+  closeButton.textContent = "X";
+
+  alert.appendChild(text);
+  alert.appendChild(closeButton);
+
+  const main = document.querySelector("main");
+
+  alert.addEventListener("click", function (e) {
+    console.log(e.target.tagName);
+    if (e.target.tagName) {
+      main.removeChild(this);
+    }
+  });
+
+  main.prepend(alert);
+
+  if (scroll) {
+    window.scrollTo(0, 0);
+  }
+}

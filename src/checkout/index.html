@@ -35,20 +35,41 @@
                 <label for="city">City:</label>
                 <input name="city" required /><br />
                 <label for="state">State:</label>
-                <input name="state" required /><br />
+                <input
+                  name="state"
+                  required
+                  minlength="2"
+                  maxlength="2"
+                  pattern="^[A-Z]{2}$"
+                /><br />
                 <label for="zip">Zip:</label>
-                <input name="zip" id="zip" required />
+                <input
+                  name="zip"
+                  id="zip"
+                  required
+                  minlength="5"
+                  maxlength="5"
+                />
               </div>
             </fieldset>
             <fieldset>
               <legend>Payment</legend>
               <div class="checkout-div">
                 <label for="cardNumber">Card number:</label>
-                <input name="cardNumber" required /><br />
+                <input
+                  name="cardNumber"
+                  required
+                  minlength="16"
+                  maxlength="16"
+                /><br />
                 <label for="expiration">Expiration:</label>
-                <input name="expiration" required /><br />
+                <input
+                  name="expiration"
+                  required
+                  pattern="^\d{2}/\d{2}$"
+                /><br />
                 <label for="code">Security Code:</label>
-                <input name="code" required />
+                <input name="code" required maxlength="3" minlength="3" />
               </div>
             </fieldset>
             <fieldset class="checkout-summary">
@@ -73,7 +94,6 @@
             <button id="checkoutSubmit" type="submit">Checkout</button>
           </form>
         </div>
-        
       </section>
     </main>
     <footer id="footerPartial"></footer>
