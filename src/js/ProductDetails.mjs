@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { alertMessage, getLocalStorage, setLocalStorage } from "./utils.mjs";
 import amountChangeHandler from "./superScriptHandler";
 
 export default class ProductDetails {
@@ -45,7 +45,11 @@ export default class ProductDetails {
     }
     // save the cart into LocalStorage
     setLocalStorage("so-cart", cartItems);
-    // control the super suscript
+    
+    // show alert
+    alertMessage("Product added to the cart.", ".product-detail", false, 2000);
+
+    // control the superscript number
     amountChangeHandler();
   }
 

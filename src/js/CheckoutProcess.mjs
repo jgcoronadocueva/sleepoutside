@@ -82,7 +82,7 @@ export default class CheckoutProcess {
     } catch (err) {
       removeAllAlerts();
       for (let message in err.message) {
-        alertMessage(err.message[message]);
+        alertMessage(err.message[message], "main");
       }
     }
   }
