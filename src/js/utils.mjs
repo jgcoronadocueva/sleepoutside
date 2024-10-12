@@ -90,3 +90,29 @@ export async function loadHeaderFooter() {
 
   amountChangeHandler();
 }
+
+// Alert handler for the checkout
+export function alertMessage(message, scroll = true) {
+  // Create a div for the alert
+  const alert = document.createElement("div");
+  alert.classList.add("alert");
+  alert.innerHTML = `<p>${message}</p><span>X</span>`;
+
+  // Add event listener to the X
+  const main = document.querySelector("main");
+
+  alert.addEventListener("click", function (e) {
+    if (e.target.tagName == "SPAN") {
+      main.removeChild(this);
+    }
+  });
+
+  // Show the alert
+  main.prepend(alert);
+  if (scroll) window.scrollTo(0, 0);
+}
+
+export function removeAllAlerts() {
+  const alerts = document.querySelectorAll(".alert");
+  alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
+}
