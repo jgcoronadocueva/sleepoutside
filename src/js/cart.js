@@ -25,7 +25,7 @@ function updateCartTotalDisplay(cartTotal) {
 async function totalCalculator() {
   if (elementExists(".cart-card.divider")) {
     showHiddenElement(".cart-footer");
-    showHiddenElement(".checkout-button")
+    showHiddenElement(".checkout-button");
     const cartItems = await getLocalStorage("so-cart");
     const cartTotal = calculateTotal(cartItems);
     updateCartTotalDisplay(cartTotal);

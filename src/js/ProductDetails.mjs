@@ -50,8 +50,19 @@ export default class ProductDetails {
   }
 
   renderProductDetails(selector) {
+    //Products
     const main = document.querySelector(selector);
     main.insertAdjacentHTML("afterBegin", productDetailsTemplate(this.product));
+
+    //Breadcrumb
+    const section = document.createElement("section");
+    section.classList.add("products");
+    section.classList.add("title");
+
+    const h2 = document.createElement("h2");
+    h2.innerHTML = this.product.Category.replace(/-/g, " ");
+    section.prepend(h2);
+    main.prepend(section);
   }
 }
 

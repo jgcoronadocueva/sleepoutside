@@ -25,10 +25,14 @@ export default class ProductListing {
     this.category = category;
     this.dataSource = dataSource;
     this.listElement = listElement;
+    this.length = 0;
   }
   async init() {
     const list = await this.dataSource.getData(this.category);
     this.renderList(list);
+    // For the breadcrumb
+    console.log(list.length);
+    this.length = list.length;
   }
   renderList(list) {
     renderListWithTemplate(productCardTemplate, this.listElement, list);
