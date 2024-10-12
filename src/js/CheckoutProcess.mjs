@@ -101,7 +101,7 @@ function packageItems(items) {
 }
 
 // takes a form element and returns an object where the key is the "name" of the form input.
-function formDataToJSON(formElement) {
+export function formDataToJSON(formElement) {
   const formData = new FormData(formElement),
     convertedJSON = {};
 
