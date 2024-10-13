@@ -31,7 +31,6 @@ export default class ProductListing {
     const list = await this.dataSource.getData(this.category);
     this.renderList(list);
     // For the breadcrumb
-    console.log(list.length);
     this.length = list.length;
   }
   renderList(list) {
