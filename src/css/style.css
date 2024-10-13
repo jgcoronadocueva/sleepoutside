@@ -334,6 +334,27 @@ fieldset p {
   display: inline-block;
   margin-left: 20px;
 }
+
+.alert {
+  text-align: justify;
+  max-width: 600px;
+  border: 1px, solid, #f68829;
+  background-color: #f0a868;
+  padding: 0.5em;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.alert p {
+  display: inline;
+  margin: 0;
+}
+
+.alert span {
+  float: right;
+}
 /* Checkout End */
 
 /*Newsletter Sign-Up box*/
