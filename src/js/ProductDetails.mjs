@@ -31,15 +31,16 @@ export default class ProductDetails {
       cartItems = [];
     }
     //Checks cart for duplicate items using Id
-    for (const p of cartItems){
-      if(p.Id === product.Id){
+    for (const p of cartItems) {
+      if (p.Id === product.Id) {
         // If duplicate, increases quantity value
         p.quantity++;
         duplicate = true;
         break;
-      }}
+      }
+    }
     // If not a duplicate, initializes quantity value in item and adds to cart array
-    if (!duplicate){
+    if (!duplicate) {
       product.quantity = 1;
       cartItems.push(product);
     }
@@ -62,9 +63,10 @@ export default class ProductDetails {
 // Product Page Template
 
 function productDetailsTemplate(product) {
+  let isDiscounted = product.FinalPrice < product.SuggestedRetailPrice;
   return `<section class="product-detail">
       <h3>${product.Brand.Name}</h3>
-
+      ${isDiscounted ? `<div class="discounted">discounted</div>` : ``}
       <h2 class="divider">${product.NameWithoutBrand}</h2>
 
       <img
@@ -72,7 +74,7 @@ function productDetailsTemplate(product) {
         src="${product.Images.PrimaryLarge}"
         alt="${product.NameWithoutBrand}"
       />
-
+      ${isDiscounted ? `<p class="reg-price"><s>$${product.SuggestedRetailPrice.toFixed(2)}</s></p>` : ``}
       <p class="product-card__price">$${product.FinalPrice.toFixed(2)}</p>
 
       <p class="product__color">${product.Colors[0].ColorName}</p>
