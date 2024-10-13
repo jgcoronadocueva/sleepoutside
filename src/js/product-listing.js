@@ -6,14 +6,19 @@ import { loadHeaderFooter, getParams } from "./utils.mjs";
 // Renders header and footer
 loadHeaderFooter();
 
-// Display products
-const category = getParams("category");
-let dataSource = new ExternalServices();
-const htmlTag = document.querySelector(".product-list");
-let tentListing = new ProductListing(category, dataSource, htmlTag);
-tentListing.init();
+async function listing() {
+  // Display products
+  const category = getParams("category");
+  let dataSource = new ExternalServices();
+  const htmlTag = document.querySelector(".product-list");
+  let productListing = new ProductListing(category, dataSource, htmlTag);
+  await productListing.init();
 
-// Display correct product title
-const title = document.querySelector("span.title");
-let formattedCategory = category.replace(/-/g, " ");
-title.innerHTML = formattedCategory;
+  // Breadcrumb
+  const title = document.querySelector("span.title");
+  let formattedCategory = category.replace(/-/g, " ");
+  let number = productListing.length;
+  title.innerHTML = `${formattedCategory} >> (${number} items)`;
+}
+
+listing();

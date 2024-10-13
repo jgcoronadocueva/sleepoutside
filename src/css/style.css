@@ -362,7 +362,7 @@ fieldset p {
   background-color: rgba(224, 190, 190, 0.253);
   margin: 0 auto 1em auto;
   max-width: 600px;
-  padding: .3em 1em;
+  padding: 0.3em 1em;
   text-align: center;
   border: 2px solid var(--primary-color);
 }
